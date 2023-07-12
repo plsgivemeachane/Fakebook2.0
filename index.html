@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href='CommingSoon'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link href='./includes/styles/PageHeader.css' rel='stylesheet'>
+    <link href='./includes/styles/PageFooter.css' rel='stylesheet'>
+    <link href='./includes/styles/PageBody.css' rel='stylesheet'>
+    <link href='./includes/styles/PostListBar.css' rel='stylesheet'>
+    <link href='./includes/styles/PostBar.css' rel='stylesheet'>
+    <link href='./includes/styles/SideBar.css' rel='stylesheet'>
+    <title>Fakebook 2.0</title>
+
+    <header class = 'PageHeader'>
+        <div class = "MainNavigationBar" id = 'HeaderContent'>
+            <div class = 'NavigationBar'>
+                <ul class = 'NavigationAddress'>
+                    <li>
+                        <a href='index.php'><img src='./includes/images/header/Logo.png' width = '90px'/></a>
+                        <a style="margin-top: 10px; margin-bottom: 10px; font-size: 40px;">Fakebook</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+</head>
+<body>
+    <form class = 'Posting' method = "POST" action="index.php">
+        <input class = 'PostBar' type="textbox" name = "content" placeholder="What do you thinks?"/>
+        <input class = 'SubmitPost' type="submit" name="post_button" value = 'Post'/>
+        <a style="font-size: 15px">Public: </a>
+        <input type="checkbox" id="is_public" name="is_public" value="1"/>
+    </form>
+    <br>
+<!-- Side bar! -->
+    <ul class='SideBar'>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="friends.html">Friends</a></li>
+        <li><a href="chat/index.html">Chat</a></li>
+        <li><a href="">Watch</a></li>
+        <li><a href="">Saved</a></li>
+        <li><a href="">Settings</a></li>
+        <li><a href="">Accounts</a></li>
+        <li><a href="">Play</a></li>
+        <li>More</li>
+    </ul>
+<!-- Side bar! -->
+    <div id = "PageBody">
+        <div class = 'PostListBar'>
+            <div class = "PostingInformation">
+                <a><img class = 'PostingAvatar' src = './includes/images/header/Logo.png' width= 50px; style = 'padding-top: 10px;'/></a>
+                <a>My Account</a>
+                <h5>They changed their profile picture</h5>
+            </div>
+            <h4>#NewAvatar</h4>       
+            <h4>#AnhHoSoMoi</h4> 
+            <h3>This is our new Avatar!</h3>
+            <img src = './includes/images/header/Logo.png' width=200px/>
+            <br>
+            <input class = 'LikePost' type="submit" name="LikePost" value = '👍'/>
+            <input class = 'AddCommentPost' type="submit" name="AddCommentPost" value = '💬'/>
+            <input class = 'SharePost' type="submit" name="SharePost" value = '↪'/>
+        </div>
+        <br>
+        <div class = 'PostListBar'>
+            <div class = "PostingInformation">
+                <a><img class = 'PostingAvatar' src = './includes/images/header/Logo.png' width= 50px; style = 'padding-top: 10px;'/></a>
+                <a>My Account</a>
+                <h5>They want to say...</h5>
+            </div>
+            <h3>Love you guys!</h3>
+            <br>
+            <input class = 'LikePost' type="submit" name="LikePost" value = '👍'/>
+            <input class = 'AddCommentPost' type="submit" name="AddCommentPost" value = '💬'/>
+            <input class = 'SharePost' type="submit" name="SharePost" value = '↪'/>
+        </div>
+        <br>
+        <div class = 'PostListBar'>
+            <div class = "PostingInformation">
+                <a><img class = 'PostingAvatar' src = './includes/images/header/Logo.png' width= 50px; style = 'padding-top: 10px;'/></a>
+                <a>My Account</a>
+                <h5>They want to say...</h5>
+            </div>
+            <h3>Love you guys!</h3>
+            <br>
+            <input class = 'LikePost' type="submit" name="LikePost" value = '👍'/>
+            <input class = 'AddCommentPost' type="submit" name="AddCommentPost" value = '💬'/>
+            <input class = 'SharePost' type="submit" name="SharePost" value = '↪'/>
+        </div>
+        <br>
+        <div class = 'PostListBar'>
+            <div class = "PostingInformation">
+                <a><img class = 'PostingAvatar' src = './includes/images/header/Logo.png' width= 50px; style = 'padding-top: 10px;'/></a>
+                <a>My Account</a>
+                <h5>They want to say...</h5>
+            </div>
+            <h3>Love you guys!</h3>
+            <br>
+            <input class = 'LikePost' type="submit" name="LikePost" value = '👍'/>
+            <input class = 'AddCommentPost' type="submit" name="AddCommentPost" value = '💬'/>
+            <input class = 'SharePost' type="submit" name="SharePost" value = '↪'/>
+        </div>
+        <br>
+        <div class = 'PostListBar'>
+            <div class = "PostingInformation">
+                <a><img class = 'PostingAvatar' src = './includes/images/header/Logo.png' width= 50px; style = 'padding-top: 10px;'/></a>
+                <a>My Account</a>
+                <h5>They want to say...</h5>
+            </div>
+            <h3>Love you guys!</h3>
+            <br>
+            <input class = 'LikePost' type="submit" name="LikePost" value = '👍'/>
+            <input class = 'AddCommentPost' type="submit" name="AddCommentPost" value = '💬'/>
+            <input class = 'SharePost' type="submit" name="SharePost" value = '↪'/>
+        </div>
+        <br>
+        <div class = 'PostListBar'>
+            <div class = "PostingInformation">
+                <a><img class = 'PostingAvatar' src = './includes/images/header/Logo.png' width= 50px; style = 'padding-top: 10px;'/></a>
+                <a>My Account</a>
+                <h5>They want to say...</h5>
+            </div>
+            <h3>Love you guys!</h3>
+            <br>
+            <input class = 'LikePost' type="submit" name="LikePost" value = '👍'/>
+            <input class = 'AddCommentPost' type="submit" name="AddCommentPost" value = '💬'/>
+            <input class = 'SharePost' type="submit" name="SharePost" value = '↪'/>
+        </div>
+    </div>
+</body>
+</html>

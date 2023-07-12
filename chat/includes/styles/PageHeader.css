@@ -1,0 +1,30 @@
+header{
+    background-color: #ffffff;
+    border-radius: 10px;
+    /* padding-left: 20px;
+    padding-right: 20px; */
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.PageHeader
+{
+    margin-top: 0px;
+    /* position: fixed; */
+}
+.NavigationBar{
+    padding-right: 500px;
+}
+
+
+.Logo{
+    padding-left: 4px;
+    border-radius: 20px;
+    
+    position: absolute;
+
+}
+
+ul.NavigationAddress
+{
+    list-style: none;
+}

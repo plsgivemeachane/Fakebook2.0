@@ -1,0 +1,34 @@
+.SideBar
+{
+    height: auto;
+    width: auto;
+    margin-top: 5px;
+    margin-left: 5px;
+    float: left;
+    background-color: #FFFFFF;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 24px;
+}
+
+ul.SideBar{
+    padding: 0;
+    margin: 0;
+    width: 300px;
+    border-radius: 20px;
+    list-style: none;
+    line-height: 27px;
+}
+
+ul.SideBar li:hover {
+    background: #AEBDCA;
+    border-radius: 5px;
+}
+
+ul.SideBar li a{
+    text-decoration: none;
+    text-align: center;
+    color: #3333ff;
+}
+ul.SideBar li {
+    margin: 7px;
+    padding: 5px;
+}
