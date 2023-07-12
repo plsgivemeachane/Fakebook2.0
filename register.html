@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href='CommingSoon'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link href='./includes/styles/PageHeader.css' rel='stylesheet'>
+    <link href='./includes/styles/PageFooter.css' rel='stylesheet'>
+    <link href='./includes/styles/RegisterMenu.css' rel='stylesheet'>
+    <link href='./includes/styles/PageBody.css' rel='stylesheet'>
+    <title>Fakebook 2.0 - Log In</title>
+
+    <header class = 'PageHeader'>
+        <div class = "MainNavigationBar" id = 'HeaderContent'>
+            <div class = 'NavigationBar'>
+                <ul class = 'NavigationAddress'>
+                    <li>
+                        <a href='index.php'><img src='./includes/images/header/Logo.png' width = '90px'/></a>
+                        <a style="margin-top: 10px; margin-bottom: 10px; font-size: 40px;">Fakebook</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+</head>
+<body>
+    <br><br><br><br>
+    <div id = "PageBody">
+        <div class="DetailsMenu">
+            <h1>We don't need Facebook or Meta, Inc.</h1>
+            <h2>So... Come here!</h2>
+        </div>
+        <br>
+        <form class = 'RegisterMenu' method="POST" action="register.html">
+            <div class = "PostingInformation">
+                <a><img class = 'PostingAvatar' src = './includes/images/header/Logo.png' width= 50px; style = 'padding-top: 10px;'/></a>
+                <a>Wellcome back!</a>
+                <h5>Register to become a user of Fakebook:</h5>
+
+            </div>
+            <a style="font-size: 15px">Username:</a>
+            <input class = 'UsernameBar' type="textbox" name="username" placeholder="Type your username here..."/>
+            <br><br>
+            <a style="font-size: 15px">Email(Option):</a>
+            <input class = 'EmailBar' type="textbox" name="email" placeholder="Type your email here(option)..."/>
+            <br><br>
+            <a style="font-size: 15px">Password:</a>
+            <input class = 'PasswordBar' type="password" name="password" placeholder="Type your password here..."/>
+            <br>
+            <div></div>
+            <br>
+            <input class = 'SubmitPost' type="submit" name="submit" value = 'Register'/>
+            <br><br>
+        </form>
+    </div>
