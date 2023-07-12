@@ -14,6 +14,6 @@ FAKEBOOK 2.0 CREATED BY LÊ MINH QUÂN AND NGUYỄN LÊ PHÚC VINH, PLEASE DONT 
 ## Acknowledgements
 Our codes are referenced on the following project:
 * Gangulus(for the UI)
-* Firebase
+* Nah I just use my own database =))
 ---
 Thanks for your interest!
