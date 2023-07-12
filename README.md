@@ -10,10 +10,6 @@ Overview:
 
 Credit:
 FAKEBOOK 2.0 CREATED BY LÊ MINH QUÂN AND NGUYỄN LÊ PHÚC VINH, PLEASE DONT REUSE OR CHANGE, COPY IF DONT HAVE PERMISSION OF OUS
-front-end: Vinh
-Design handling: Vinh
-back-end: Quân
-manage/leader: Quân
 
 ## Acknowledgements
 Our codes are referenced on the following project:
