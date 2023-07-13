@@ -1,4 +1,4 @@
-header{
+header {
     background-color: #ffffff;
     border-radius: 10px;
     /* padding-left: 20px;
@@ -9,17 +9,24 @@ header{
 .PageHeader
 {
     margin-top: 0px;
+    padding-bottom: 100px;
     /* position: fixed; */
 }
-.NavigationBar{
+
+.NavigationBar {
     padding-right: 500px;
 }
 
+.NavigationBar #title {
+    margin-left: 100px;
+    padding-top: 15px;
+    position: absolute;
+}
 
-.Logo{
+.PageHeader img {
     padding-left: 4px;
-    border-radius: 20px;
-    
+    border-radius: 50%;
+    margin-top: 5px;
     position: absolute;
 
 }
