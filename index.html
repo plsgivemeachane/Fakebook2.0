@@ -28,13 +28,13 @@
     </header>
 </head>
 <body>
-    <form class = 'Posting' method = "POST" action="index.php">
+    <div class = 'Posting'>
         <br>
         <input class = 'PostBar' type="textbox" name = "content" placeholder="What do you thinks?"/>
-        <input class = 'SubmitPost' type="submit" name="post_button" value = 'Post'/>
-        <a style="font-size: 15px">Public: </a>
-        <input type="checkbox" id="is_public" name="is_public" value="1"/>
-    </form>
+        <button class = 'SubmitPost' onclick="Post()" > Post </button>
+        <!-- <a style="font-size: 15px">Public: </a>
+        <input type="checkbox" id="is_public" name="is_public" value="1"/> -->
+    </div>
     <br>
 <!-- Side bar! -->
     <ul class='SideBar'>
@@ -50,7 +50,7 @@
     </ul>
 <!-- Side bar! -->
     <div id = "PageBody">
-        <div class = 'PostListBar'>
+        <!-- <div class = 'PostListBar'>
             <div class = "PostingInformation">
                 <a><img class = 'PostingAvatar' src = './includes/images/header/Logo.png' width= 50px; style = 'padding-top: 10px;'/></a>
                 <a>My Account</a>
@@ -62,77 +62,68 @@
             <img src = './includes/images/header/Logo.png' width=200px/>
             <br>
             <input class = 'LikePost' type="submit" name="LikePost" value = '👍'/>
-            <input class = 'AddCommentPost' type="submit" name="AddCommentPost" value = '💬'/>
-            <input class = 'SharePost' type="submit" name="SharePost" value = '↪'/>
-        </div>
+        </div> -->
         <br>
-        <div class = 'PostListBar'>
-            <div class = "PostingInformation">
-                <a><img class = 'PostingAvatar' src = './includes/images/header/Logo.png' width= 50px; style = 'padding-top: 10px;'/></a>
-                <a>My Account</a>
-                <h5>They want to say...</h5>
-            </div>
-            <h3>Love you guys!</h3>
-            <br>
-            <input class = 'LikePost' type="submit" name="LikePost" value = '👍'/>
-            <input class = 'AddCommentPost' type="submit" name="AddCommentPost" value = '💬'/>
-            <input class = 'SharePost' type="submit" name="SharePost" value = '↪'/>
-        </div>
-        <br>
-        <div class = 'PostListBar'>
-            <div class = "PostingInformation">
-                <a><img class = 'PostingAvatar' src = './includes/images/header/Logo.png' width= 50px; style = 'padding-top: 10px;'/></a>
-                <a>My Account</a>
-                <h5>They want to say...</h5>
-            </div>
-            <h3>Love you guys!</h3>
-            <br>
-            <input class = 'LikePost' type="submit" name="LikePost" value = '👍'/>
-            <input class = 'AddCommentPost' type="submit" name="AddCommentPost" value = '💬'/>
-            <input class = 'SharePost' type="submit" name="SharePost" value = '↪'/>
-        </div>
-        <br>
-        <div class = 'PostListBar'>
-            <div class = "PostingInformation">
-                <a><img class = 'PostingAvatar' src = './includes/images/header/Logo.png' width= 50px; style = 'padding-top: 10px;'/></a>
-                <a>My Account</a>
-                <h5>They want to say...</h5>
-            </div>
-            <h3>Love you guys!</h3>
-            <br>
-            <input class = 'LikePost' type="submit" name="LikePost" value = '👍'/>
-            <input class = 'AddCommentPost' type="submit" name="AddCommentPost" value = '💬'/>
-            <input class = 'SharePost' type="submit" name="SharePost" value = '↪'/>
-        </div>
-        <br>
-        <div class = 'PostListBar'>
-            <div class = "PostingInformation">
-                <a><img class = 'PostingAvatar' src = './includes/images/header/Logo.png' width= 50px; style = 'padding-top: 10px;'/></a>
-                <a>My Account</a>
-                <h5>They want to say...</h5>
-            </div>
-            <h3>Love you guys!</h3>
-            <br>
-            <input class = 'LikePost' type="submit" name="LikePost" value = '👍'/>
-            <input class = 'AddCommentPost' type="submit" name="AddCommentPost" value = '💬'/>
-            <input class = 'SharePost' type="submit" name="SharePost" value = '↪'/>
-        </div>
-        <br>
-        <div class = 'PostListBar'>
-            <div class = "PostingInformation">
-                <a><img class = 'PostingAvatar' src = './includes/images/header/Logo.png' width= 50px; style = 'padding-top: 10px;'/></a>
-                <a>My Account</a>
-                <h5>They want to say...</h5>
-            </div>
-            <h3>Love you guys!</h3>
-            <br>
-            <input class = 'LikePost' type="submit" name="LikePost" value = '👍'/>
-            <input class = 'AddCommentPost' type="submit" name="AddCommentPost" value = '💬'/>
-            <input class = 'SharePost' type="submit" name="SharePost" value = '↪'/>
-        </div>
     </div>
     <script>
         const cookies = str_obj(document.cookie)
+        var username = ""
+        var imgurl = ""
+
+
+        function loadingPost(){
+            fetch("https://fakebook20backend.lequan3.repl.co/posts")
+            .then(res => res.json())
+            .then(raw => {
+                raw.data.reverse();
+                for(let data of raw.data){
+                    console.log(data)
+                    const maindiv = document.createElement("div")
+                    maindiv.postID = data.stt
+                    maindiv.classList.add("PostListBar")
+                    const divPostInfomation = document.createElement("div")
+                    divPostInfomation.classList.add("PostingInformation")
+                    maindiv.appendChild(divPostInfomation)
+                    const url = data.imgurl
+                    const img = document.createElement("img")
+                    img.classList.add("PostingAvatar")
+                    img.src = url
+                    // img.width = "50px"
+                    // img.height = "50px"
+                    // img.style.borderRadius = "50%"
+                    // img.style.paddingTop = "10px"
+                    divPostInfomation.appendChild(img)
+                    const p = document.createElement("p")
+                    const name = data.user
+                    p.innerText = name
+                    divPostInfomation.appendChild(p)
+                    const h3 = document.createElement("h3")
+                    h3.innerText = data.post
+                    maindiv.appendChild(h3)
+                    const likebutton = document.createElement("button")
+                    likebutton.innerText = "👍 " + data.likes.length
+                    likebutton.data = data.likes
+                    console.log(data.likes.indexOf(username) >= 0)
+                    console.log(username)
+                    if(data.likes.includes(username)){
+                        likebutton.classList.add("LikePostAlready")
+                    } else {
+                        likebutton.classList.add("LikePost")
+                    }
+                    likebutton.onclick = like
+                    maindiv.appendChild(likebutton)
+                    const brk = document.createElement("br")
+                    document.getElementById("PageBody").appendChild(maindiv)
+                    document.getElementById("PageBody").appendChild(brk)
+                }
+            })
+        }   
+
+        function resetPost(){
+            document.getElementById("PageBody").innerHTML = ""
+        }
+
+        loadingPost()
         console.log(cookies)
         setInterval(() => {
             if(!cookies.session){
@@ -141,6 +132,8 @@
                 window.location.href = "/login"
             }
         }, 5000);
+
+        
 
         // Checking session
         if(!cookies.session){
@@ -153,7 +146,9 @@
             .then(userdata => {
                 console.log(userdata.username)
                 document.getElementById("loginuser").innerText = "Login As "  + userdata.username
+                username = userdata.username
                 document.getElementById("avt").src = userdata.avatar
+                imgurl = userdata.avatar
             })
         }
 
@@ -172,6 +167,74 @@
                 prev[name] = value.join('=');
                 return prev;
             }, {});
+        }
+
+        function Post(){
+            // assert username always != ""
+            const data = document.getElementsByClassName("PostBar")[0].value
+            console.log(data)
+            document.getElementsByClassName("PostBar")[0].value = ""
+            fetch("https://fakebook20backend.lequan3.repl.co/post", {
+                method: "POST",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    username: username,
+                    avatar: imgurl,
+                    data: data
+                })
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log(data)
+                resetPost()
+                loadingPost()
+            })
+        }  
+
+        function like(event){
+            console.log(event.target.data)
+            if(event.target.classList.contains("LikePost")){
+                // Like
+                fetch("https://fakebook20backend.lequan3.repl.co/like", {
+                    method: "POST",
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        username: username,
+                        post: event.target.parentElement.postID
+                    })
+                })
+                .then(res => res.text())
+                .then(data => {
+                    console.log(data)
+                    resetPost()
+                    loadingPost()
+                })
+            } else {
+                // Unlike
+                fetch("https://fakebook20backend.lequan3.repl.co/unlike", {
+                    method: "POST",
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        username: username,
+                        post: event.target.parentElement.postID
+                    })
+                })
+                .then(res => res.text())
+                .then(data => {
+                    console.log(data)
+                    resetPost()
+                    loadingPost()
+                })
+            }
         }
     </script>
 </body>
