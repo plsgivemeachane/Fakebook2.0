@@ -32,3 +32,20 @@ ul.SideBar li {
     margin: 7px;
     padding: 5px;
 }
+
+@media (min-width: 1000px) {
+    ul.SideBar {
+        width: 150px;
+        font-size: 20px;
+    }
+    .SideBar
+    {
+        height: auto;
+        width: auto;
+        margin-top: 5px;
+        margin-left: 5px;
+        float: left;
+        background-color: #FFFFFF;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 24px;
+    }
+}
