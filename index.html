@@ -130,5 +130,15 @@
             <input class = 'SharePost' type="submit" name="SharePost" value = '↪'/>
         </div>
     </div>
+    <script>
+        // Checking session
+        if(document.cookie == ""){
+            // No session found
+            alert("Session has expired please relogin")
+            window.location.href = "/login"
+        } else {
+            console.log(document.cookie)
+        }
+    </script>
 </body>
 </html>
