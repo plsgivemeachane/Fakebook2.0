@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href='CommingSoon'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link href='includes/styles/PageHeader.css' rel='stylesheet'>
+    <link href='includes/styles/PageFooter.css' rel='stylesheet'>
+    <link href='includes/styles/PageBody.css' rel='stylesheet'>
+    <link href='includes/styles/PostListBar.css' rel='stylesheet'>
+    <link href='includes/styles/PostBar.css' rel='stylesheet'>
+    <link href='includes/styles/SideBar.css' rel='stylesheet'>
+    <title>Fakebook 2.0</title>
+
+    <header class = 'PageHeader'>
+        <div class = "MainNavigationBar" id = 'HeaderContent'>
+            <div class = 'NavigationBar'>
+                <ul class = 'NavigationAddress'>
+                    <li>
+                        <a href='/'><img src='./includes/images/header/Logo.png' width = '90px'/></a>
+                        <a style="margin-top: 10px; margin-bottom: 10px; font-size: 40px;">Fakebook</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+</head>
+<body>
+<!-- Side bar! -->
+    <ul class='SideBar'>
+        <li>
+            <img id="avt"/>
+        </li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/friends">Friends</a></li>
+        <li><a href="chat/index.html">Chat</a></li>
+        <li><a href="/account">Settings</a></li>
+        <li id="loginuser">Login As : </li>
+        <li id="logout" onclick="Logout()">Logout</li> 
+    </ul>
+<!-- Side bar! -->
+    <div id = "PageBody">
+        <div class = 'PostListBar'>
+            <div class = "PostingInformation">
+                <a><img class = 'PostingAvatar' src = './includes/images/header/Logo.png' width= 50px; style = 'padding-top: 10px;'/></a>
+                <a>My Account</a>
+                <h5>They changed their profile picture</h5>
+            </div>
+            <h4>#NewAvatar</h4>       
+            <h4>#AnhHoSoMoi</h4> 
+            <h3>This is our new Avatar!</h3>
+            <img src = './includes/images/header/Logo.png' width=200px/>
+            <br>
+            <input class = 'LikePost' type="submit" name="LikePost" value = '👍'/>
+            <input class = 'AddCommentPost' type="submit" name="AddCommentPost" value = '💬'/>
+            <input class = 'SharePost' type="submit" name="SharePost" value = '↪'/>
+        </div>
+        <br>
+    </div>
+    <script>
+        const cookies = str_obj(document.cookie)
+        console.log(cookies)
+        setInterval(() => {
+            if(!cookies.session){
+                // No session found
+                alert("Session has expired please relogin")
+                window.location.href = "/login"
+            }
+        }, 5000);
+
+        // Checking session
+        if(!cookies.session){
+            // No session found
+            alert("Session has expired please relogin")
+            window.location.href = "/login"
+        } else {
+            fetch("https://fakebook20backend.lequan3.repl.co/uuid/" + cookies.session)
+            .then(respone => respone.json())
+            .then(userdata => {
+                console.log(userdata.username)
+                document.getElementById("loginuser").innerText = "Login As "  + userdata.username
+                document.getElementById("avt").src = userdata.avatar
+            })
+        }
+
+        function Logout(){
+            delete_cookie("session")
+        }
+
+        function delete_cookie(name) {
+            document.cookie = name +'=; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+            window.location.href = "/login"
+        }
+
+        function str_obj(str) {
+            return str.split('; ').reduce((prev, current) => {
+                const [name, ...value] = current.split('=');
+                prev[name] = value.join('=');
+                return prev;
+            }, {});
+        }
+    </script>
+</body>
+</html>

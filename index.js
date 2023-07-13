@@ -24,6 +24,10 @@ app.get("/register", (req, res) => {
     res.sendFile(__dirname + "/register.html")
 })
 
+app.get("/account", (req, res) => {
+    res.sendFile(__dirname + "/account.html")
+})
+
 app.listen(3000, () => {
     console.log("Apps is up and running")
 })

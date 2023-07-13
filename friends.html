@@ -29,15 +29,15 @@
 <body>
 <!-- Side bar! -->
     <ul class='SideBar'>
+        <li>
+            <img id="avt"/>
+        </li>
         <li><a href="/">Home</a></li>
         <li><a href="/friends">Friends</a></li>
         <li><a href="chat/index.html">Chat</a></li>
-        <li><a href="">Watch</a></li>
-        <li><a href="">Saved</a></li>
-        <li><a href="">Settings</a></li>
-        <li><a href="">Accounts</a></li>
-        <li><a href="">Play</a></li>
-        <li>More</li>
+        <li><a href="/account">Settings</a></li>
+        <li id="loginuser">Login As : </li>
+        <li id="logout" onclick="Logout()">Logout</li> 
     </ul>
 <!-- Side bar! -->
     <div id = "PageBody">
@@ -89,5 +89,48 @@
             <input class = 'AddChat' type="submit" name="AddChat" value = 'Chat 💬'/>
         </div>
     </div>
+    <script>
+        const cookies = str_obj(document.cookie)
+        console.log(cookies)
+        setInterval(() => {
+            if(!cookies.session){
+                // No session found
+                alert("Session has expired please relogin")
+                window.location.href = "/login"
+            }
+        }, 5000);
+
+        // Checking session
+        if(!cookies.session){
+            // No session found
+            alert("Session has expired please relogin")
+            window.location.href = "/login"
+        } else {
+            fetch("https://fakebook20backend.lequan3.repl.co/uuid/" + cookies.session)
+            .then(respone => respone.json())
+            .then(userdata => {
+                console.log(userdata.username)
+                document.getElementById("loginuser").innerText = "Login As "  + userdata.username
+                document.getElementById("avt").src = userdata.avatar
+            })
+        }
+
+        function Logout(){
+            delete_cookie("session")
+        }
+
+        function delete_cookie(name) {
+            document.cookie = name +'=; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+            window.location.href = "/login"
+        }
+
+        function str_obj(str) {
+            return str.split('; ').reduce((prev, current) => {
+                const [name, ...value] = current.split('=');
+                prev[name] = value.join('=');
+                return prev;
+            }, {});
+        }
+    </script>
 </body>
 </html>
