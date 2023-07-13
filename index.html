@@ -123,7 +123,6 @@
             document.getElementById("PageBody").innerHTML = ""
         }
 
-        loadingPost()
         console.log(cookies)
         setInterval(() => {
             if(!cookies.session){
@@ -149,6 +148,7 @@
                 username = userdata.username
                 document.getElementById("avt").src = userdata.avatar
                 imgurl = userdata.avatar
+                loadingPost()
             })
         }
 
