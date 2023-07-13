@@ -50,8 +50,9 @@
     </div>
     <script>
         function login(){
-            username = document.getElementsByClassName("UsernameBar")[0].value
-            password = document.getElementsByClassName("PasswordBar")[0].value
+            var username = document.getElementsByClassName("UsernameBar")[0].value
+            var password = document.getElementsByClassName("PasswordBar")[0].value
+            console.log(username,password)
 
             fetch("https://fakebook20backend.lequan3.repl.co/login", {
                 method: "POST",
