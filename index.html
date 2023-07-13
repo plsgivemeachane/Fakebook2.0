@@ -46,6 +46,7 @@
         <li><a href="">Accounts</a></li>
         <li><a href="">Play</a></li>
         <li id="loginuser">Login As : </li>
+        <li id="logout" onclick="Logout()">Logout</li> 
     </ul>
 <!-- Side bar! -->
     <div id = "PageBody">
@@ -153,6 +154,14 @@
                 console.log(userdata.username)
                 document.getElementById("loginuser").innerText = "Login As "  + userdata.username
             })
+        }
+
+        function Logout(){
+            delete_cookie("session")
+        }
+
+        function delete_cookie(name) {
+            document.cookie = name +'=; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
         }
 
         function str_obj(str) {
