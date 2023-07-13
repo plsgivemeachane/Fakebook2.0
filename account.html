@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
     <link rel="icon" type="image/x-icon" href='CommingSoon'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <link href='includes/styles/PageHeader.css' rel='stylesheet'>
@@ -44,18 +45,10 @@
     <div id = "PageBody">
         <div class = 'PostListBar'>
             <div class = "PostingInformation">
-                <a><img class = 'PostingAvatar' src = './includes/images/header/Logo.png' width= 50px; style = 'padding-top: 10px;'/></a>
-                <a>My Account</a>
-                <h5>They changed their profile picture</h5>
+                <h1>My Account</h1>
             </div>
-            <h4>#NewAvatar</h4>       
-            <h4>#AnhHoSoMoi</h4> 
-            <h3>This is our new Avatar!</h3>
-            <img src = './includes/images/header/Logo.png' width=200px/>
-            <br>
-            <input class = 'LikePost' type="submit" name="LikePost" value = '👍'/>
-            <input class = 'AddCommentPost' type="submit" name="AddCommentPost" value = '💬'/>
-            <input class = 'SharePost' type="submit" name="SharePost" value = '↪'/>
+            <input type="file" name="myImage" id="file" accept="image/*" />
+            <button onclick="upload()">Upload Photo</button>
         </div>
         <br>
     </div>
@@ -101,6 +94,42 @@
                 return prev;
             }, {});
         }
+
+        function upload(){
+            const fileInput = document.getElementById("file")
+            const formData = new FormData();
+            formData.append('image', fileInput.files[0]);
+
+            const options = {
+                method: 'POST', 
+                body: formData,
+                // If you add this, upload won't work
+                // headers: {
+                //   'Content-Type': 'multipart/form-data',
+                // }
+            };
+                
+            fetch('https://api.imgbb.com/1/upload?key=33cb0a435b1313a55942d7e305c49d9a', options)
+            .then(respone => respone.json())
+            .then(data => {
+                const url = data.data.url
+                console.log(url)
+                fetch("https://fakebook20backend.lequan3.repl.co/image", {
+                    method: "POST",
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        session: cookies.session,
+                        url: url
+                    })
+                }).then(res => res.text()).then(data => {
+                    console.log(data)
+                    window.location.reload()
+                })
+            })
+        }       
     </script>
 </body>
 </html>

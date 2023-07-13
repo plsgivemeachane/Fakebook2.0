@@ -9,6 +9,12 @@
     box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 24px;
 }
 
+.SideBar img {
+    width: 70;
+    height: 70px;
+    border-radius: 50%;
+}
+
 ul.SideBar{
     padding: 0;
     margin: 0;
