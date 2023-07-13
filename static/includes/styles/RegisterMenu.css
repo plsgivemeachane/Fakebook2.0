@@ -4,7 +4,7 @@
     border-radius: 10px;
     padding-left: 20px;
     padding-right: 20px;
-    width: 500px;
+    width: 400px;
     margin-left: auto;
     margin-right: 100px;
     justify-content: flex-end;
@@ -71,4 +71,19 @@
     border: none;
     border-radius: 10px;
     color: #FFFF
+}
+
+@media (min-width: 1000px) {
+    .RegisterMenu
+    {
+        background-color: #ffffff;
+        border-radius: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        width: 500px;
+        margin-left: auto;
+        margin-right: 100px;
+        justify-content: flex-end;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    }
 }

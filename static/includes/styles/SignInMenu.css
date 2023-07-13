@@ -4,27 +4,12 @@
     border-radius: 10px;
     padding-left: 20px;
     padding-right: 20px;
-    width: 500px;
+    width: 400px;
     margin-left: auto;
-    margin-right: 100px;
-    justify-content: flex-end;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-}
-
-.DetailsMenu
-{
-    background-color: #7568ff;
-    border-radius: 50px;
-    float: left;
-    padding-left: 20px;
-    padding-right: 20px;
-    width: 500px;
-    margin-left: 100px;
     margin-right: auto;
-    color: #FFFF;
+    justify-content: center;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
-
 .UsernameBar{
     border-radius: 5px;
     height: 30px;
@@ -59,4 +44,19 @@
     border: none;
     border-radius: 10px;
     color: #FFFF
+}
+
+@media (min-width: 1000px) {
+    .SignInMenu
+    {
+        background-color: #ffffff;
+        border-radius: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: flex-end;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    }
 }
