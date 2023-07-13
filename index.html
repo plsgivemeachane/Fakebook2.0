@@ -40,11 +40,10 @@
         <li><a href="/">Home</a></li>
         <li><a href="/friends">Friends</a></li>
         <li><a href="chat/index.html">Chat</a></li>
-        <li><a href="">Watch</a></li>
-        <li><a href="">Saved</a></li>
         <li><a href="">Settings</a></li>
-        <li><a href="">Accounts</a></li>
-        <li><a href="">Play</a></li>
+        <li>
+            <img id="avt"/>
+        </li>
         <li id="loginuser">Login As : </li>
         <li id="logout" onclick="Logout()">Logout</li> 
     </ul>
@@ -153,6 +152,7 @@
             .then(userdata => {
                 console.log(userdata.username)
                 document.getElementById("loginuser").innerText = "Login As "  + userdata.username
+                document.getElementById("avt").src = userdata.avatar
             })
         }
 
