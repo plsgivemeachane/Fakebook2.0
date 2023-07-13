@@ -33,7 +33,7 @@
             <h2>So... Come here!</h2>
         </div>
         <br>
-        <form class = 'RegisterMenu' method="POST" action="register.html">
+        <div class = 'RegisterMenu' method="POST" id="submitForm">
             <div class = "PostingInformation">
                 <a><img class = 'PostingAvatar' src = './includes/images/header/Logo.png' width= 50px; style = 'padding-top: 10px;'/></a>
                 <a>Wellcome back!</a>
@@ -51,7 +51,40 @@
             <br>
             <div></div>
             <br>
-            <input class = 'SubmitPost' type="submit" name="submit" value = 'Register'/>
+            <button class = 'SubmitPost' onclick="Register()">Register</button>
             <br><br>
-        </form>
+        </div>
+        <script>
+            function Register(){
+                document.getElementById("submitForm")
+                let Username = document.getElementsByClassName("UsernameBar")[0].value
+                let Email = document.getElementsByClassName("EmailBar")[0].value
+                let Password = document.getElementsByClassName("PasswordBar")[0].value
+                console.log(Username,Email,Password)
+                if(Username != "" && Email != "" && Password != ""){
+                    fetch("https://fakebook20backend.lequan3.repl.co/register", {
+                        method: "POST",
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        body:JSON.stringify({
+                            username: Username,
+                            password: Password,
+                            email: Email
+                        })
+                    })
+                    .then(respone => respone.text())
+                    .then(data => {
+                        console.log(data)
+                        if(data != "username already taken"){
+                            // Register successfully
+                            document.cookie = "session="+data
+                        }
+                    })
+                } else {
+                    alert("Please fullfil all the infomation")
+                }
+            }
+        </script>
     </div>
