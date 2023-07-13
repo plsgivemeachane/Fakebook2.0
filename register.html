@@ -75,6 +75,7 @@
                         if(data != "username already taken"){
                             // Register successfully
                             document.cookie = "session="+data
+                            window.location.href = "/"
                         }
                     })
                 } else {

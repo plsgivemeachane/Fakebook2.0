@@ -138,6 +138,22 @@
             window.location.href = "/login"
         } else {
             console.log(document.cookie)
+            const cookies = str_obj(document.cookie)
+            fetch("https://fakebook20backend.lequan3.repl.co/uuid/" + cookies.session)
+            .then(respone => respone.json())
+            .then(userdata => {
+                console.log(userdata.username)
+            })
+        }
+
+        function str_obj(str) {
+            str = str.split(', ');
+            var result = {};
+            for (var i = 0; i < str.length; i++) {
+                var cur = str[i].split('=');
+                result[cur[0]] = cur[1];
+            }
+            return result;
         }
     </script>
 </body>
