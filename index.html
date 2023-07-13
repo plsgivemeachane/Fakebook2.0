@@ -131,8 +131,10 @@
         </div>
     </div>
     <script>
+        const cookies = str_obj(document.cookie)
+
         setInterval(() => {
-            if(document.cookie == ""){
+            if(!cookies.session){
                 // No session found
                 alert("Session has expired please relogin")
                 window.location.href = "/login"
@@ -140,13 +142,12 @@
         }, 5000);
 
         // Checking session
-        if(document.cookie == ""){
+        if(!cookies.session){
             // No session found
             alert("Session has expired please relogin")
             window.location.href = "/login"
         } else {
             console.log(document.cookie)
-            const cookies = str_obj(document.cookie)
             fetch("https://fakebook20backend.lequan3.repl.co/uuid/" + cookies.session)
             .then(respone => respone.json())
             .then(userdata => {
