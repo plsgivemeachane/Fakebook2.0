@@ -12,7 +12,7 @@
 ul.SideBar{
     padding: 0;
     margin: 0;
-    width: 150px;
+    width: 100px;
     border-radius: 20px;
     list-style: none;
     line-height: 27px;
@@ -35,7 +35,7 @@ ul.SideBar li {
 
 @media (min-width: 1000px) {
     ul.SideBar {
-        width: 150px;
+        width: 200px;
         font-size: 20px;
     }
     .SideBar

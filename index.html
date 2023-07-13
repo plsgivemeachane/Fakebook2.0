@@ -37,15 +37,15 @@
     <br>
 <!-- Side bar! -->
     <ul class='SideBar'>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="friends.html">Friends</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/friends">Friends</a></li>
         <li><a href="chat/index.html">Chat</a></li>
         <li><a href="">Watch</a></li>
         <li><a href="">Saved</a></li>
         <li><a href="">Settings</a></li>
         <li><a href="">Accounts</a></li>
         <li><a href="">Play</a></li>
-        <li>More</li>
+        <li id="loginuser">Login As : </li>
     </ul>
 <!-- Side bar! -->
     <div id = "PageBody">
@@ -143,6 +143,7 @@
             .then(respone => respone.json())
             .then(userdata => {
                 console.log(userdata.username)
+                document.getElementById("loginuser").innerText = "Login As "  + userdata.username
             })
         }
 
