@@ -1,0 +1,14 @@
+{
+  "name": "fakebook2.0",
+  "version": "1.0.0",
+  "description": "Just using like Facebook, this branch is stable code, but some error need to fix, just waiting and we being fix that in a few times BETA Branch may be not fully stable and smooth like STABLE(main) branch. Please consider before using!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
