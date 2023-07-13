@@ -131,6 +131,13 @@
         </div>
     </div>
     <script>
+        setInterval(() => {
+            if(document.cookie == ""){
+            // No session found
+            alert("Session has expired please relogin")
+            window.location.href = "/login"
+        }, 5000)
+
         // Checking session
         if(document.cookie == ""){
             // No session found
