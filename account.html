@@ -46,12 +46,29 @@
     <div id = "PageBody">
         <div class = 'PostListBar'>
             <div class = "PostingInformation">
-                <h1>My Account</h1>
+                <h1><img id="avatar"/><a id = "accountinfname">Account Avatar</a></h1>
             </div>
+        </div>
+        <br> 
+        <div class = 'PostListBar'>
+            <div class = "PostingInformation">
+                <h2>Account Details:</h2>
+            </div>
+            <h3>Choose file to change your avatar:</h3>
+            <br>
             <input type="file" name="myImage" id="file" accept="image/*" />
             <button onclick="upload()">Upload Photo</button>
+
+            <h2>Your account id: @<a id = "accountinfname1">Account Avatar</a</h2>
         </div>
         <br>
+        <div class = 'PostListBar'>
+            <div class = "PostingInformation">
+                <h2>Like:</h2>
+            </div>
+            <h2>You are interesting at:</h2>
+            <input type="text" class="InterestBar"/>
+        </div>
     </div>
     <script>
         const cookies = str_obj(document.cookie)
@@ -76,6 +93,9 @@
                 console.log(userdata.username)
                 document.getElementById("loginuser").innerText = "Login As "  + userdata.username
                 document.getElementById("avt").src = userdata.avatar
+                document.getElementById("avatar").src = userdata.avatar
+                document.getElementById("accountinfname").innerText = userdata.username
+                document.getElementById("accountinfname1").innerText = userdata.username
             })
         }
 
