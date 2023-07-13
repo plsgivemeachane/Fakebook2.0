@@ -156,14 +156,11 @@
         }
 
         function str_obj(str) {
-            console.log(str)
-            str = str.split(', ');
-            var result = {};
-            for (var i = 0; i < str.length; i++) {
-                var cur = str[i].split('=');
-                result[cur[0]] = cur[1];
-            }
-            return result;
+            return str.split('; ').reduce((prev, current) => {
+                const [name, ...value] = current.split('=');
+                prev[name] = value.join('=');
+                return prev;
+            }, {});
         }
     </script>
 </body>
